@@ -1,10 +1,19 @@
-# AI Driver Drowsiness Detection & ADAS Highway Simulation
+# VisionPilot-AI Driver Monitoring & Emergency ADAS System
 
-![Developer](https://img.shields.io/badge/Developer-Hemanth%20Namagiri-blue?style=for-the-badge)
+![Developer](https://img.shields.io/badge/Developer-Giddaluru%20Damodhar-blue?style=for-the-badge)
 ![Tech Stack](https://img.shields.io/badge/Python-3.x-green?style=for-the-badge&logo=python)
 ![Computer Vision](https://img.shields.io/badge/OpenCV-MediaPipe-orange?style=for-the-badge&logo=opencv)
 
 Our system works as an AI-powered Driver Monitoring and Emergency ADAS Safety Platform designed to prevent accidents caused by driver fatigue or sleepiness. A mobile phone camera mounted like a dashboard camera continuously monitors the driver in real time using computer vision techniques. The system uses OpenCV and MediaPipe to detect the driver’s face, eyes, head position, and facial landmarks. By analyzing Eye Aspect Ratio (EAR), blink patterns, yawning behavior, and head tilt, the system continuously calculates the driver’s attention and fatigue level. If the driver shows signs of drowsiness, the system first issues progressive warnings through visual alerts and alarm sounds. If the driver still does not respond, the ADAS emergency system activates automatically. The vehicle simulation then uses virtual radar and sensor systems to analyze surrounding traffic, including vehicles in front, behind, and beside the car. Based on collision prediction, lane safety, and surrounding traffic conditions, the AI decision engine selects the safest maneuver path. The simulated autonomous system gradually reduces speed, performs smooth lane changes, avoids nearby vehicles, moves toward the emergency shoulder lane, and safely parks the vehicle. The entire system works in real time and demonstrates how modern automotive AI, driver monitoring, radar awareness, and autonomous emergency response systems can work together to improve road safety and prevent accidents.
+
+## 📸 System in Action
+
+### Normal Cruising (Driver Attentive)
+![Driver Attentive](assets/demo_attentive.png)
+
+### Emergency Safe-Stop (Driver Drowsy)
+![Driver Drowsy](assets/demo_drowsy.png)
+
 ## 🚀 Key Features
 
 ### 1. Advanced Driver Monitoring System (DMS)
@@ -28,7 +37,7 @@ Our system works as an AI-powered Driver Monitoring and Emergency ADAS Safety Pl
 ## 📂 Project Architecture
 
 ```text
-Drowsiness_Detection/
+VisionPilot-AI/
 ├── main.py                     # Primary entry point & rendering loop
 ├── config.py                   # Global constants and simulation params
 ├── face_landmarker.task        # Pre-trained MediaPipe weights
@@ -75,7 +84,7 @@ python main.py
 
 ## 👨‍💻 Developer
 
-Developed by **Hemanth Namagiri**.
+Developed by **Giddaluru Damodhar**.
 
 Dedicated to building intelligent AI solutions for a safer, autonomous automotive future.
 

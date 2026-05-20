@@ -42,7 +42,7 @@ def build_selector_frame(cameras, highlighted):
     canvas = np.zeros((th, tw, 3), dtype=np.uint8)
     canvas[:] = (16, 18, 26)
 
-    cv2.putText(canvas, "SELECT CAMERA - AURORA ADAS PROTOTYPE", (PADDING, 32),
+    cv2.putText(canvas, "SELECT CAMERA - VISIONPILOT-AI PROTOTYPE", (PADDING, 32),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.72, (0, 220, 255), 2)
     cv2.putText(canvas, "Number key selects | Arrow/A/D browse | ENTER confirm | Q quit",
                 (PADDING, 56), cv2.FONT_HERSHEY_SIMPLEX, 0.38, (150, 155, 165), 1)
@@ -75,7 +75,7 @@ def choose_camera():
         return None, None, None
 
     highlighted = 0
-    win = "Aurora ADAS - Camera Selector"
+    win = "VisionPilot-AI - Camera Selector"
     cv2.namedWindow(win, cv2.WINDOW_NORMAL)
     while True:
         cv2.imshow(win, build_selector_frame(cameras, highlighted))
@@ -146,8 +146,8 @@ def run_detection(cam_index, cam_label, cap, detector):
     total_sleep = 0.0
     sleep_start = None
     force_sleep_demo = False
-    driver_win = "Aurora Driver Monitor"
-    sim_win = "Aurora ADAS Simulation"
+    driver_win = "VisionPilot-AI Driver Monitor"
+    sim_win = "VisionPilot-AI ADAS Simulation"
     cv2.namedWindow(driver_win, cv2.WINDOW_NORMAL)
     cv2.namedWindow(sim_win, cv2.WINDOW_NORMAL)
     cv2.resizeWindow(driver_win, 860, 620)

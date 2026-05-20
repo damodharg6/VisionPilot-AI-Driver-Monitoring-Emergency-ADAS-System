@@ -22,7 +22,7 @@ def draw_boot_sequence(frame, boot_steps, start_time):
     cv2.addWeighted(overlay, 0.82, frame, 0.18, 0, frame)
     cx = w // 2
     cy = h // 2 - 70
-    cv2.putText(frame, "AURORA ADAS AI PROTOTYPE", (max(20, cx - 210), cy),
+    cv2.putText(frame, "VISIONPILOT-AI PROTOTYPE", (max(20, cx - 210), cy),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.72, (0, 235, 235), 2)
     progress = min(1.0, elapsed / sum(step[1] for step in boot_steps))
     cv2.rectangle(frame, (cx - 190, cy + 32), (cx + 190, cy + 42), (32, 38, 48), -1)

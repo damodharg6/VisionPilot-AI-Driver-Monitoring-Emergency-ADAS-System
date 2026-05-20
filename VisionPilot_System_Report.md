@@ -1,12 +1,12 @@
-# DRIVER DROWSINESS DETECTION SYSTEM v3.0
+# VISIONPILOT-AI DRIVER MONITORING & EMERGENCY ADAS SYSTEM v3.0
 ## TECHNICAL PROJECT REPORT AND SYSTEM DOCUMENTATION
 
 ---
 
 ### **PROJECT METADATA**
-* **Project Name:** Driver Drowsiness Detection System (DDS)
+* **Project Name:** VisionPilot-AI Driver Monitoring & Emergency ADAS System (VisionPilot)
 * **Version:** 3.0 (Virtual ADAS & Web Mission Control Upgrade)
-* **Author / Principal Developer:** Hemanth Namagiri
+* **Author / Principal Developer:** Giddaluru Damodhar
 * **Technology Stack:** Python 3.10+, OpenCV, MediaPipe FaceLandmarker, Multithreading (Winsound), HTTP Server (JSON Telemetry), HTML5 / JS Canvas (3D Vector Perspective), Web Speech API (AI Voice Synth)
 * **Release Date:** May 2026
 * **Status:** Production Ready & Optimized for Classroom Demonstration
@@ -36,22 +36,22 @@
 
 ```
 ================================================================================
-               DRIVER DROWSINESS DETECTION SYSTEM (DDS v3.0)
+   VISIONPILOT-AI DRIVER MONITORING & EMERGENCY ADAS SYSTEM (VisionPilot v3.0)
 ================================================================================
     A Real-Time, Non-Intrusive CV System Leveraging MediaPipe FaceMesh,
     Virtual ADAS Copilot, 3D Web-Based Cockpit, and AI Speech Synthesis
 ================================================================================
 
-                              PREPARED BY:
-                            Hemanth Namagiri
-                          Principal Developer
+                                PREPARED BY:
+                             Giddaluru Damodhar
+                             Principal Developer
 
                       DATE OF SUBMISSION: MAY 8, 2026
                         PROJECT CLASS: COMPUTER VISION
 ```
 
 ### **1.1 Document Overview**
-This comprehensive 15-page technical report details the design, mathematical foundations, implementation, and performance evaluation of the **Driver Drowsiness Detection System (DDS v2.0)**. 
+This comprehensive 15-page technical report details the design, mathematical foundations, implementation, and performance evaluation of the **VisionPilot-AI Driver Monitoring & Emergency ADAS System (VisionPilot v2.0)**. 
 
 Upgraded from legacy `dlib` architectures, version 2.0 introduces deep neural pipeline processing via **MediaPipe FaceLandmarker**, a custom multi-camera scanning interface, a non-blocking multithreaded alarm subsystem, and a state-of-the-art heads-up telemetry display (Heads-Up Dashboard) to ensure driver safety in real-time.
 
@@ -115,7 +115,7 @@ Developing a software solution to monitor drowsiness in real-time presents sever
 * **Platform Efficiency:** Heavy Deep Learning models (e.g., YOLO-based face models or massive convolutional networks) cannot run on standard embedded processors inside vehicles without expensive GPUs.
 * **Latency & Threading:** Traditional alarm systems often halt the main execution loop (blocking), causing the camera stream to freeze exactly when the driver is in danger.
 
-### **3.3 The DDS v2.0 Solution**
+### **3.3 The VisionPilot v2.0 Solution**
 This system solves these issues by:
 * Leveraging **MediaPipe Face Mesh**, which uses specialized sub-graph pipelines trained on diverse facial topologies to remain highly robust across lightings and skin tones.
 * Utilizing a normalized **Eye Aspect Ratio (EAR)** calculation that accounts for distance variation from the camera.
@@ -146,7 +146,7 @@ Our system transitioned through multiple architectural iterations to reach versi
       ├── Heavy C++ binary compilation required (CMake issues).
       └── Massive 99MB model file; slow execution on non-GPU CPUs.
       v
-[DDS v2.0 - 2026] MediaPipe FaceLandmarker (468-Landmark)
+[VisionPilot v2.0 - 2026] MediaPipe FaceLandmarker (468-Landmark)
       ├── Lightweight (3.5MB model asset).
       ├── Robust 3D coordinates (X, Y, Z depth estimation).
       └── Hardware accelerated via specialized mobile-CPU pipelines.
@@ -158,7 +158,7 @@ By adopting `MediaPipe FaceLandmarker`, the system achieves an order-of-magnitud
 
 ## PAGE 5: HIGH-LEVEL SYSTEM ARCHITECTURE
 
-The DDS v2.0 system is designed as a modular, event-driven architecture. The software separates the concern of frame ingestion, landmark inference, mathematical modeling, telemetry rendering, and audio alerts.
+The VisionPilot v2.0 system is designed as a modular, event-driven architecture. The software separates the concern of frame ingestion, landmark inference, mathematical modeling, telemetry rendering, and audio alerts.
 
 ```mermaid
 graph TD
@@ -265,11 +265,11 @@ If $EAR_{avg} < 0.25$, the eyes are classified as closed.
 ### **8.1 The Multi-Camera Challenge**
 In practical applications, commercial drivers do not operate in standardized IT environments. They may use a laptop webcam, an external USB dash camera, or a smartphone acting as an IP/USB webcam (e.g., DroidCam). 
 
-To accommodate this, DDS v2.0 implements a custom **Camera Selector GUI** that scans the system's DirectShow/MSMF registries for available video capture devices and presents them in a beautiful, live-rendering grid interface.
+To accommodate this, VisionPilot v2.0 implements a custom **Camera Selector GUI** that scans the system's DirectShow/MSMF registries for available video capture devices and presents them in a beautiful, live-rendering grid interface.
 
 ```
 +-----------------------------------------------------------------------------------------+
-| SELECT CAMERA  —  Drowsiness Detection                                                  |
+| SELECT CAMERA  —  VisionPilot-AI                                                         |
 | Press number key to pick  |  Arrow/A/D to browse  |  ENTER to confirm  |  Q=Quit            |
 +----------------------------------------------------+------------------------------------+
 |  +---------------------------+                     |  +---------------------------+     |
@@ -308,7 +308,7 @@ A common flaw in many drowsiness detectors is the use of blocking audio playback
 When a blocking audio function executes, the entire Python program halts for the duration of the audio clip (often 0.5s to 1.0s). During this time, the camera stream ceases to capture frames, meaning the system cannot detect if the driver has opened their eyes, resulting in a system freeze during a critical emergency.
 
 ### **9.2 Threaded Event-Driven Solution**
-To solve this, DDS v2.0 implements a multi-threaded, non-blocking acoustic alert system utilizing Python's `threading` library and thread-safe control primitives (`threading.Event`).
+To solve this, VisionPilot v2.0 implements a multi-threaded, non-blocking acoustic alert system utilizing Python's `threading` library and thread-safe control primitives (`threading.Event`).
 
 ```
 [Main Thread]
@@ -343,7 +343,7 @@ This guarantees that the main OpenCV UI loop continues to render at its native f
 ## PAGE 10: REAL-TIME LIVE INFORMATION PANEL & DASHBOARD
 
 ### **10.1 Heads-Up Telemetry Panel**
-To make the application commercial-grade, DDS v2.0 features an integrated **Driver Monitor HUD (Heads-Up Dashboard)** rendered directly on the right side of the video stream.
+To make the application commercial-grade, VisionPilot v2.0 features an integrated **Driver Monitor HUD (Heads-Up Dashboard)** rendered directly on the right side of the video stream.
 
 The design utilizes a translucent backdrop `(RGB: 15, 15, 25)` with rounded borders, blending elegantly into the video feed.
 
@@ -382,7 +382,7 @@ The design utilizes a translucent backdrop `(RGB: 15, 15, 25)` with rounded bord
 
 
 ### **10.3 Glassmorphic Web Cockpit & Virtual ADAS Simulator**
-As part of the v3.0 upgrade, DDS introduces an **Autonomous Emergency Assist Simulator** rendered in a separate high-fidelity web interface. When launched, a background daemon initializes a local HTTP server at `http://localhost:5000`, polling JSON telemetry from the main detection script every 80 milliseconds.
+As part of the v3.0 upgrade, VisionPilot introduces an **Autonomous Emergency Assist Simulator** rendered in a separate high-fidelity web interface. When launched, a background daemon initializes a local HTTP server at `http://localhost:5000`, polling JSON telemetry from the main detection script every 80 milliseconds.
 
 Key highlights of the Web Simulation include:
 1. **Dynamic 3D Vector Road:** Utilizes HTML5 Canvas API to project a perspective highway with rolling line markers scaling exponentially towards the horizon, simulating realistic velocities (up to 100 km/h).
@@ -461,7 +461,7 @@ This sequence represents a highly optimized polling loop. Resizing first to $700
 ## PAGE 12: PERFORMANCE EVALUATION & EXPERIMENTAL RESULTS
 
 ### **1.1 Test Configuration**
-To evaluate the reliability of DDS v2.0, extensive laboratory testing was performed across three hardware configurations representing typical deployment targets:
+To evaluate the reliability of VisionPilot v2.0, extensive laboratory testing was performed across three hardware configurations representing typical deployment targets:
 1. **Target A (Commercial Vehicle PC):** Intel Core i3-1115G4 (Embedded CPU), 8GB RAM, Integrated Graphics.
 2. **Target B (Standard Development Laptop):** AMD Ryzen 7 5800H, 16GB RAM, Dedicated GPU available (but model forced to CPU execution mode).
 3. **Target C (Single Board Computer):** Raspberry Pi 5 (8GB RAM), Active Cooler.
@@ -492,7 +492,7 @@ To evaluate the reliability of DDS v2.0, extensive laboratory testing was perfor
 ## PAGE 13: SOFTWARE ENGINEERING BEST PRACTICES & CLEAN CODE ARCHITECTURE
 
 ### **13.1 Object-Oriented Principles & Clean Code**
-DDS v2.0 is designed from the ground up prioritizing readability, maintainability, and portability. The codebase adheres strictly to the following standards:
+VisionPilot v2.0 is designed from the ground up prioritizing readability, maintainability, and portability. The codebase adheres strictly to the following standards:
 
 * **Resource Safety (RAID):** Python handles, camera drivers, and window processes are aggressively released in the `finally` or teardown blocks to avoid memory leaks:
   ```python
@@ -512,7 +512,7 @@ The script separates its computational logic cleanly:
 
 ```
 +---------------------------------------------------------------------------------+
-|                                 DDS ARCHITECTURE                                |
+|                            VISIONPILOT ARCHITECTURE                            |
 +---------------------------------------------------------------------------------+
 |   Pre-processing     --->      Mathematical Modeling     --->   Visual telemetry|
 | (Resizing & BGR2RGB) |      (Euclidean EAR Vectors)      |  (cv2.rectangle/HUD) |
@@ -553,7 +553,7 @@ This strict architectural separation allows developers to easily swap the backen
 ## PAGE 15: CONCLUSION, FUTURE SCOPE & ACADEMIC REFERENCES
 
 ### **15.1 Conclusion**
-The Driver Drowsiness Detection System v2.0 represents an excellent integration of modern computer vision and software engineering. By transitioning to **MediaPipe Face Mesh** and implementing an **asynchronous, multi-threaded audio architecture**, the system achieves real-time, low-latency performance on standard consumer CPUs without requiring dedicated GPUs. 
+The VisionPilot-AI Driver Monitoring & Emergency ADAS System v2.0 represents an excellent integration of modern computer vision and software engineering. By transitioning to **MediaPipe Face Mesh** and implementing an **asynchronous, multi-threaded audio architecture**, the system achieves real-time, low-latency performance on standard consumer CPUs without requiring dedicated GPUs. 
 
 The inclusion of an interactive camera-selector grid and a heads-up dashboard elevates this software from a basic concept to a polished, professional solution that is ready for real-world testing.
 
@@ -563,7 +563,7 @@ The inclusion of an interactive camera-selector grid and a heads-up dashboard el
 3. **Hardware Packaging:** Compiling the system into a single executable file or packaging it onto an embedded platform like the Raspberry Pi 5 with an Infrared (IR) camera module for night-driving support.
 
 ```
-  DDS Road Map:  [V2.0 Core EAR] ---> [Yawn Detection (MAR)] ---> [Embedded Pi Deployment]
+  VisionPilot Road Map:  [V2.0 Core EAR] ---> [Yawn Detection (MAR)] ---> [Embedded Pi Deployment]
 ```
 
 ### **15.3 Academic & Technical References**
