@@ -16,7 +16,7 @@ Our system works as an AI-powered Driver Monitoring and Emergency ADAS Safety Pl
 
 ## 🚀 Key Features
 
-### 1. Advanced Driver Monitoring System (DMS)
+### 1. Advanced Driver Monitoring System
 * **MediaPipe FaceLandmarker:** Employs advanced computer vision for highly robust, real-time tracking of 468 facial landmarks.
 * **Adaptive EAR Calibration:** Eye Aspect Ratio (EAR) closure thresholds dynamically calibrate to the specific driver's face, replacing fixed/brittle values.
 * **Multi-Factor Fatigue Scoring:** Calculates a continuous 0-100 Attention and Fatigue score by actively tracking eye closure duration, blink frequency, yawning patterns, head tilt (nodding), and signal stability.
